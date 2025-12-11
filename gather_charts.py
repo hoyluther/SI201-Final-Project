@@ -8,7 +8,7 @@ from db_setup import DB_NAME
 
 CHART_URL = "https://www.billboard.com/charts/hot-100"
 CHART_NAME = "Billboard Hot 100"
-BATCH_LIMIT = 25  # max new rows per run, per project spec
+BATCH_LIMIT = 25 
 
 
 def fetch_chart_html(url=CHART_URL):
