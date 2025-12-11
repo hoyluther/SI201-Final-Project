@@ -1,0 +1,121 @@
+﻿The goals for your project including what APIs/websites you planned to work with and
+what data you planned to gather (5 points)
+
+
+From Genius, we used it to get if a track exists, if it does it adds it to the database. When it is done running it will print out how many tracks are in the database. 
+
+
+From Lyrics You,  This API provided the full lyrics text for each song. Because lyrics retrieval frequently fails for certain songs, we implemented: Title normalization, tries to get lyrics and  A failure catch system, 
+These bits of code prevented repeated requests for songs that cannot return lyrics.
+We will extract the actual lyrics of each song, inputting the artist and track title name.
+
+
+From Billboard Hot 100, we used web scraping with BeautifulSoup, we extracted the weekly top 100 songs from Billboard.com. We stored Chart position, Artist name, and Song title
+Each run inserts up to 25 rows due to project constraints.
+
+
+From TheAudioDB API we tried to get genre, BPM, mood, and album artwork. While many holiday tracks do not exist in TheAudioDB catalog we still tried to implement the code none the less
+
+
+2. The goals that were achieved including what APIs/websites you actually worked with and what data you did gather (5 points)
+
+
+We were able to achieve a complete working system that successfully integrates multiple data sources via API and scraping, cleans and organizes that data in a relational database that performs complex SQL analysis, and generates insightful visualizations. The APIs we worked with are Genius, Lyrics.ovh, Audio DB and Billboard Hot 100(Beautiful Soup). The data we gathered from Genius was our primary source for tracks and artists, Lyrics.ovh was our secondary source for lyrical data. Audio DB was our supplemental source for track metadata (Genre, Mood, BPM). Billboard Hot 100(Beautiful Soup) was our web scraping component for popularity data. 
+
+
+3. The problems that you faced (5 points)
+
+
+One of our challenges was that KKbox (an api we chose to use) ended up not being available in the United States. we had to choose a new api to work with because of that so we chose the audio DB and BeautifulSoup to generate quantitative data from Billboard Top 100.
+
+
+APIs continuously failed (timeouts, missing songs): we had to add retries, normalization, and failure caching.
+
+
+String matching was difficult (different punctuation, featured artists, different spellings across sites): This was most problematic between the Genius APi and BeautifulSoup that used Billboard Top 100 data. 
+
+
+
+
+4. The calculations from the data in the database (i.e. a screen shot) (5 points)
+
+
+python analyze_visualize.py
+  
+
+Open DB Browser for SQLite, go to the Execute SQL tab.
+  
+
+
+
+
+
+
+
+5. The visualization that you created (i.e. screen shot or image file) (5 points)
+  
+  
+  
+  
+
+
+
+
+
+6. Instructions for running your code (5 points)
+
+
+1. Run DBsetup.py
+2. Run pipeline.py
+3. Run calculation.py
+4. Run analyze_visualize.py
+
+
+5. or run .py files in this order 
+6. Run Genius_api
+7. Run Lyrics_api
+8. Run The audio DB api
+9. Run Gather Genius
+10. Run Gather Lyrics
+11. Run Gather audio DB
+12. Run calculation.py
+13. Run analyze_visualize.py
+
+
+
+
+7. An updated function diagram with the names of each function, the input, and output and who was responsible for that function (10 points)
+
+
+  
+
+
+
+8. You must also clearly document all resources you used. The documentation should be of the following form (10 points)
+
+
+
+
+
+
+
+
+
+
+Date
+	Issue Description
+	Location of Resource
+	Result
+(did it solve the issue?
+	12/9/25
+	Needed to use an api to gather the names of different artists and their song titles 
+	Genius API
+	Yes
+	12/9/25
+	Needed to use an api to generate quantitative data on lyrics of each song (song length, lyrical elements, etc)
+	Lyrics OHV API
+	Yes
+	12/10/25
+	Needed to compile information on chart rankings for each song in an easily converted string file to the Genius API list. 
+	BeautifulSoup → Billboard top 100
+	Yes
