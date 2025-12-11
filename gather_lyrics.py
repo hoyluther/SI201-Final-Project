@@ -122,7 +122,7 @@ def gather_lyrics():
             print("  Saved lyrics.")
         else:
             mark_failure(track_id)
-            print("  Failed twice — marked as no-lyrics.")
+            print("  Failed twice — marked as no-lyrics found.")
 
         # Short sleep to avoid rate limiting
         time.sleep(0.4)
