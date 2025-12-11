@@ -23,15 +23,24 @@ def create_tables():
     # TRACKS
     # --------------------------
     cur.execute("""
-        CREATE TABLE IF NOT EXISTS tracks (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            artist_id INTEGER,
-            title TEXT,
-            genius_song_id INTEGER,
-            UNIQUE(artist_id, title),
-            FOREIGN KEY (artist_id) REFERENCES artists(id)
-        );
-    """)
+    CREATE TABLE IF NOT EXISTS tracks (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        artist_id INTEGER,
+        title TEXT,
+        genius_song_id INTEGER,
+
+        -- NEW from TheAudioDB
+        genre TEXT,
+        mood TEXT,
+        bpm INTEGER,
+        album_name TEXT,
+        album_thumb TEXT,
+
+        UNIQUE(artist_id, title),
+        FOREIGN KEY (artist_id) REFERENCES artists(id)
+    );
+""")
+
 
     # --------------------------
     # LYRICS (from lyrics.ovh)
