@@ -1,0 +1,31 @@
+=== Average Chart Rank Per Artist ===
+Mariah Carey: 1.00
+Wham!: 2.00
+Bobby Helms: 4.00
+Alex Warren: 7.00
+Ariana Grande: 8.00
+Andy Williams: 10.00
+Olivia Dean: 12.00
+Dean Martin: 13.00
+The Ronettes: 15.00
+Taylor Swift: 15.50
+Burl Ives: 16.00
+Darlene Love: 18.00
+Leon Thomas: 20.00
+Chuck Berry: 22.00
+Kehlani: 26.00
+
+=== Average Lyrics Length Per Artist ===
+Kehlani: 2035.00
+Ariana Grande: 1806.00
+Mariah Carey: 1651.00
+Kelly Clarkson: 1530.00
+Leon Thomas: 1372.00
+Frank Sinatra: 1256.00
+Andy Williams: 1128.00
+Michael Bublé: 1125.00
+Wham!: 995.00
+Burl Ives: 856.00
+Dean Martin: 822.00
+Darlene Love: 785.00
+Brenda Lee: 719.00
