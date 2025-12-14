@@ -22,7 +22,7 @@ def search_genius_song(search_term):
             print("No Genius results.")
             return None
         first = hits[0]["result"]
-        print("✅ Genius search worked:")
+        print("Genius search worked:")
         print(first.get("title"), "-", first.get("artist_names"))
         print(first.get("url"))
         return first

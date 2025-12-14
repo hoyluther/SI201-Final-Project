@@ -129,17 +129,17 @@ def gather_audiodb():
             print(f"   🔎 Trying title: {attempt}")
             info = get_track_details(attempt)
             if info:
-                print("   ✅ AudioDB match found!")
+                print("AudioDB match found!")
                 break
 
         if not info:
-            print("   ❌ No AudioDB match after all attempts — skipping.")
+            print("No AudioDB match after all attempts — skipping.")
             continue
 
         save_audiodb(track_id, info)
         print("   💾 Saved AudioDB metadata.")
 
-    print("\n🎉 AudioDB stage complete.")
+    print("AudioDB stage complete.")
 
 
 if __name__ == "__main__":
