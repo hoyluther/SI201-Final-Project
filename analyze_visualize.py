@@ -1,5 +1,5 @@
 # analyze_visualize.py
-# Cleaned analysis + visualization for SI 201 final project
+# Analysis + visualization for SI 201 final project
 # Requires: tracks, artists, lyrics, chart_popularity tables
 
 import sqlite3
@@ -10,6 +10,10 @@ DB_NAME = "music_project.db"
 
 # Ensure folder exists
 os.makedirs("charts", exist_ok=True)
+
+# Red-only styling (no blue)
+RED = "red"
+DARK_RED = "darkred"
 
 
 def fetch_query(query, params=()):
@@ -42,18 +46,17 @@ def avg_chart_rank_per_artist():
     data = fetch_query(query)
 
     if not data:
-        print("No matching chart + track data (possible if many Billboard songs had no lyrics).")
+        print("No matching chart + track data.")
         return None
 
     for name, avg_rank in data:
         print(f"{name:<25}  avg rank: {avg_rank:.2f}")
 
-    # Plot bar chart
     artists = [row[0] for row in data]
     ranks = [row[1] for row in data]
 
     plt.figure(figsize=(10, 6))
-    plt.barh(artists, ranks)
+    plt.barh(artists, ranks, color=RED, edgecolor=DARK_RED)
     plt.xlabel("Average Chart Rank (lower is better)")
     plt.title("Average Chart Rank per Artist")
     plt.gca().invert_yaxis()
@@ -95,7 +98,7 @@ def lyrics_vs_chart_rank():
         return
 
     plt.figure(figsize=(10, 6))
-    plt.scatter(x_positions, y_wordcounts)
+    plt.scatter(x_positions, y_wordcounts, color=RED, edgecolors=DARK_RED)
     plt.xlabel("Chart Rank (1 = highest)")
     plt.ylabel("Lyrics Word Count")
     plt.title("Lyrics Length vs Chart Rank")
@@ -136,7 +139,7 @@ def avg_lyrics_length_per_artist():
     avg_lengths = [row[1] for row in data]
 
     plt.figure(figsize=(10, 6))
-    plt.barh(artists, avg_lengths)
+    plt.barh(artists, avg_lengths, color=RED, edgecolor=DARK_RED)
     plt.xlabel("Average Lyrics Length (characters)")
     plt.title("Top Artists by Lyrics Length")
     plt.gca().invert_yaxis()
@@ -163,7 +166,7 @@ def chart_rank_histogram():
     positions = [row[0] for row in rows]
 
     plt.figure(figsize=(8, 5))
-    plt.hist(positions, bins=25)
+    plt.hist(positions, bins=25, color=RED, edgecolor=DARK_RED)
     plt.xlabel("Chart Position")
     plt.ylabel("Frequency")
     plt.title("Distribution of Chart Ranks")
